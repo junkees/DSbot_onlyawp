@@ -4,6 +4,7 @@ const config = require('./config.json')
 const db = require('./db/db.js')
 const verify = require('./commands/verify')
 const stats = require('./commands/stats')
+const voicetime = require('./commands/voicetime')
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -13,26 +14,14 @@ db.con.changeUser({
   database: "s1_lr"
 });
 
-client.on('message', msg => {
+client.on('message', async (msg) => {
   verify.verify(client, msg)
   stats.stats(client, msg)
+  voicetime.voicetimecomm(client, msg)
+});
+
+client.on('voiceStateUpdate', async (oldState, newState) => {
+  voicetime.voicetime(oldState, newState)
 });
 
 client.login(config.token);
-
-
-/*
-  if(msg.content != "!verify" && msg.channel.id == "858932336602906645") {
-    msg.delete()
-  }
-  if (msg.content === '!verify' && msg.channel.id == "858932336602906645") {
-    if(msg.member.roles.cache.has("500680513128759316") == false) {
-      console.log(msg.member.roles)
-      msg.member.roles.add("500680513128759316")
-      msg.react("✅")
-    }
-    else {
-      msg.react("❌")
-    }
-  }
-*/

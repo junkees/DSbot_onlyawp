@@ -39,8 +39,8 @@ module.exports.stats = async(client, msg) =>
                 break;
 
         }
-        if(!message[1].startsWith('STEAM_')) {
-            msg.reply("неправильно введен STEAMID. Например: STEAM_1:1:448627396.")
+        if(!message[1].startsWith('STEAM_1')) {
+            msg.reply("неправильно введен STEAMID. Например: STEAM_1:1:448627396. Помните, что STEAMID должен начинаться со STEAM_1.")
             return;
         }
         db.con.changeUser({
