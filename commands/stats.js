@@ -61,7 +61,7 @@ module.exports.stats = async(client, msg) =>
                 .setTitle(`Статистика ${message[1]}`)
                 .setTimestamp(Date.now())
                 .setFooter(`Выполнил ${msg.author.username}#${msg.author.discriminator}`)
-                .setDescription(`Очки: ${JSON.stringify(result[0]['value'])}\nНик: ${JSON.stringify(result[0]['name'])}\nУбийств: ${JSON.stringify(result[0]['kills'])}\nСмертей: ${JSON.stringify(result[0]['deaths'])}\nВыстрелов: ${JSON.stringify(result[0]['shoots'])}\nПопаданий: ${JSON.stringify(result[0]['hits'])}\nПопаданий в голову: ${JSON.stringify(result[0]['headshots'])}\nОнлайн: ${playtime.toFixed(2)} час(ов)\n`)
+                .setDescription(`**Очки: ${JSON.stringify(result[0]['value'])}\nНик: ${JSON.stringify(result[0]['name'])}\nУбийств: ${JSON.stringify(result[0]['kills'])}\nСмертей: ${JSON.stringify(result[0]['deaths'])}\nВыстрелов: ${JSON.stringify(result[0]['shoots'])}\nПопаданий: ${JSON.stringify(result[0]['hits'])}\nПопаданий в голову: ${JSON.stringify(result[0]['headshots'])}\nОнлайн: ${playtime.toFixed(2)} час(ов)**\n`)
             msg.reply(embed)
         })
     }
